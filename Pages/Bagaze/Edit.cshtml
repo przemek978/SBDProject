@@ -1,0 +1,35 @@
+﻿@page
+@model SBD.Pages.Bagaze.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Bagaz</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Bagaz.id_bagazu" />
+            <div class="form-group">
+                <label asp-for="Bagaz.waga" class="control-label"></label>
+                <input asp-for="Bagaz.waga" class="form-control" />
+                <span asp-validation-for="Bagaz.waga" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
