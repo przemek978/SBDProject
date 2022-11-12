@@ -9,12 +9,15 @@ namespace SBD.Data
 {
     public class AirPortContext : DbContext
     {
-        public AirPortContext (DbContextOptions<AirPortContext> options)
+        public AirPortContext(DbContextOptions<AirPortContext> options)
             : base(options)
         {
         }
         public DbSet<SBD.Models.Bagaz> Bagaz { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Bagaz>().ToTable("BAGAZ");
 
-        
+        }
     }
 }
