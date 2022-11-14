@@ -21,6 +21,9 @@ namespace SBD.Pages.Bilety
 
         public IActionResult OnGet()
         {
+        ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
+        ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
+        ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
             return Page();
         }
 

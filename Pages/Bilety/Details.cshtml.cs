@@ -28,7 +28,10 @@ namespace SBD.Pages.Bilety
                 return NotFound();
             }
 
-            Bilet = await _context.Bilet.FirstOrDefaultAsync(m => m.id_biletu == id);
+            Bilet = await _context.Bilet
+                .Include(b => b.Bagaz)
+                .Include(b => b.Lot)
+                .Include(b => b.Pasazer).FirstOrDefaultAsync(m => m.id_biletu == id);
 
             if (Bilet == null)
             {

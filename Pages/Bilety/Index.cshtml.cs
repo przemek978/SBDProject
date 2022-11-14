@@ -23,7 +23,10 @@ namespace SBD.Pages.Bilety
 
         public async Task OnGetAsync()
         {
-            Bilet = await _context.Bilet.ToListAsync();
+            Bilet = await _context.Bilet
+                .Include(b => b.Bagaz)
+                .Include(b => b.Lot)
+                .Include(b => b.Pasazer).ToListAsync();
         }
     }
 }
