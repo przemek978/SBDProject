@@ -8,7 +8,7 @@ namespace SBD.Models
         [Key]
         public int id_bagazu { get; set; }
         public int waga { get; set; }
-        //public Bilet Bilet { get; set; }
+        public Bilet Bilet { get; set; }
         public Bagaz()
         {
 
