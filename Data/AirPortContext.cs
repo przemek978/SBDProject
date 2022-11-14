@@ -30,7 +30,16 @@ namespace SBD.Data
             .HasOne(b => b.Bilet)
             .WithOne(i => i.Bagaz)
             .HasForeignKey<Bilet>(b => b.id_bagazu);
-        
+            modelBuilder.Entity<Lotnisko>(entity =>
+            { 
+                entity.HasMany(p => p.Przyloty)
+                    .WithOne(d => d.Lotnisko_Koncowe)
+                    .HasForeignKey(d => d.id_lotniska_koncowego);
+
+                entity.HasMany(p => p.Odloty)
+                    .WithOne(d => d.Lotnisko)
+                    .HasForeignKey(d => d.id_lotniska_startowego);
+            });
 
             modelBuilder.Entity<PilotLot>().HasKey(c => new { c.id_pilota, c.id_lotu });
             modelBuilder.Entity<PilotLot>().HasOne(tc => tc.Pilot)

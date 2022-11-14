@@ -18,7 +18,7 @@ namespace SBD.Models
 
 
         public virtual Lotnisko Lotnisko { get; set; }
-        //public virtual Lotnisko Lotnisko_Koncowe { get; set; }
+        public virtual Lotnisko Lotnisko_Koncowe { get; set; }
 
         [ForeignKey("id_lotu")]
         public virtual ICollection<PilotLot> Piloci { get; set; }
