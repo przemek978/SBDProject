@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Pages\Licencje\" />
     <Folder Include="Pages\LinieLotnicze\" />
     <Folder Include="Pages\Samoloty\" />
