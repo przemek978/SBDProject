@@ -18,5 +18,6 @@ namespace SBD.Models
             this.id_bagazu = id_bagazu;
             this.waga = waga;
         }
+        public Bilet Bilet { get; set; }
     }
 }

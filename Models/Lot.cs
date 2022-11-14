@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SBD.Models
 {
@@ -20,6 +21,7 @@ namespace SBD.Models
         //public virtual Lotnisko Lotnisko_Koncowe { get; set; }
 
         public virtual ICollection<PilotLot> Piloci { get; set; }
+        [ForeignKey("id_lotu")]           ////must add to map bilet.id_lotu to this.id_lotu
 
         public virtual ICollection<Bilet> Bilety { get; set; }
     }
