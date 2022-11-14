@@ -6,13 +6,13 @@ namespace SBD.Models
     public class Bagaz
     {
         [Key]
-        public decimal id_bagazu { get; set; }
-        public decimal waga { get; set; }
+        public int id_bagazu { get; set; }
+        public int waga { get; set; }
         public Bagaz()
         {
 
         }
-        public Bagaz(decimal id_bagazu, decimal waga)
+        public Bagaz(int id_bagazu, int waga)
         {
             this.id_bagazu = id_bagazu;
             this.waga = waga;
