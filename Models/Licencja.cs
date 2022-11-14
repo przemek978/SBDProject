@@ -6,11 +6,11 @@ namespace SBD.Models
     public class Licencja
     {
         [Key]
-        public int idLicencji { get; set; }
-        public DateTime  dataWydania { get; set; }
-        public string rodzajLicencji { get; set; }
+        public int id_licencji { get; set; }
+        public DateTime data_wydania { get; set; }
+        public string rodzaj_licencji { get; set; }
 
-        public int idPilota { get; set; }
+        public int id_pilota { get; set; }
         public virtual Pilot Pilot { get; set; }
     }
 }

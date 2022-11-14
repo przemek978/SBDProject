@@ -6,7 +6,7 @@ namespace SBD.Models
     public class Pasazer
     {
         [Key]
-        public int idPasazera { get; set; }
+        public int id_Pasazera { get; set; }
         public string nazwisko { get; set; }
         public string imie { get; set; }
 

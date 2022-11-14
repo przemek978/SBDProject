@@ -6,8 +6,8 @@ namespace SBD.Models
     public class Lotnisko
     {
         [Key]
-        public int idLotniska { get; set; }
-        public int iloscMiejsc { get; set; }
+        public int id_lotniska { get; set; }
+        public int ilosc_miejsc { get; set; }
         public string lokalizacja { get; set; }
         public string nazwa { get; set; }
 

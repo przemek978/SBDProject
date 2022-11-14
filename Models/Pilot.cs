@@ -9,7 +9,7 @@ namespace SBD.Models
         public string imie { get; set; }
         public string nazwisko { get; set; }
         [Key]
-        public int idPilota { get; set; }
+        public int id_pilota { get; set; }
         public LiniaLotnicza linia { get; set; }
 
         public virtual ICollection<PilotLot> Loty { get; set; }
