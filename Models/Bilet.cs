@@ -4,7 +4,7 @@ namespace SBD.Models
 {
     public class Bilet
     {
-        [Key]
+    
         [Key]
         public int id_biletu { get; set; }
         public int id_bagazu { get; set; }
@@ -14,7 +14,7 @@ namespace SBD.Models
         public virtual Pasazer Pasazer { get; set; }
 
         public virtual Lot Lot { get; set; }
-        public virtual Bagaz Bagaz { get;; set; }
+        public virtual Bagaz Bagaz { get; set; }
 
     }
 }
