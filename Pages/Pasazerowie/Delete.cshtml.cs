@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using SBD.Models;
 
-namespace SBD.Pages.Bagaze
+namespace SBD.Pages.Pasazerowie
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace SBD.Pages.Bagaze
         }
 
         [BindProperty]
-        public Bagaz Bagaz { get; set; }
+        public Pasazer Pasazer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace SBD.Pages.Bagaze
                 return NotFound();
             }
 
-            Bagaz = await _context.Bagaz.FirstOrDefaultAsync(m => m.id_bagazu == id);
+            Pasazer = await _context.Pasazer.FirstOrDefaultAsync(m => m.id_pasazera == id);
 
-            if (Bagaz == null)
+            if (Pasazer == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace SBD.Pages.Bagaze
                 return NotFound();
             }
 
-            Bagaz = await _context.Bagaz.FindAsync(id);
+            Pasazer = await _context.Pasazer.FindAsync(id);
 
-            if (Bagaz != null)
+            if (Pasazer != null)
             {
-                _context.Bagaz.Remove(Bagaz);
+                _context.Pasazer.Remove(Pasazer);
                 await _context.SaveChangesAsync();
             }
 

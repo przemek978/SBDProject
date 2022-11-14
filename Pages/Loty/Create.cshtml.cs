@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using SBD.Data;
 using SBD.Models;
 
-namespace SBD.Pages.Bilety
+namespace SBD.Pages.Loty
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,11 @@ namespace SBD.Pages.Bilety
 
         public IActionResult OnGet()
         {
-        ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
             return Page();
         }
 
         [BindProperty]
-        public Bilet Bilet { get; set; }
+        public Lot Lot { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +35,7 @@ namespace SBD.Pages.Bilety
                 return Page();
             }
 
-            _context.Bilet.Add(Bilet);
+            _context.Lot.Add(Lot);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

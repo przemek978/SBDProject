@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using SBD.Models;
 
-namespace SBD.Pages.Bilety
+namespace SBD.Pages.Loty
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,11 @@ namespace SBD.Pages.Bilety
             _context = context;
         }
 
-        public IList<Bilet> Bilet { get;set; }
+        public IList<Lot> Lot { get;set; }
 
         public async Task OnGetAsync()
         {
-            Bilet = await _context.Bilet
-                .Include(b => b.Bagaz).ToListAsync();
+            Lot = await _context.Lot.ToListAsync();
         }
     }
 }

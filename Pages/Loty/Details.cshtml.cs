@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using SBD.Models;
 
-namespace SBD.Pages.Bagaze
+namespace SBD.Pages.Loty
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace SBD.Pages.Bagaze
             _context = context;
         }
 
-        public Bagaz Bagaz { get; set; }
+        public Lot Lot { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace SBD.Pages.Bagaze
                 return NotFound();
             }
 
-            Bagaz = await _context.Bagaz.FirstOrDefaultAsync(m => m.id_bagazu == id);
+            Lot = await _context.Lot.FirstOrDefaultAsync(m => m.id_lotu == id);
 
-            if (Bagaz == null)
+            if (Lot == null)
             {
                 return NotFound();
             }

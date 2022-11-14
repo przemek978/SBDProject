@@ -1,0 +1,50 @@
+﻿@page
+@model SBD.Pages.Loty.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Lot</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Lot.data" class="control-label"></label>
+                <input asp-for="Lot.data" class="form-control" />
+                <span asp-validation-for="Lot.data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lot.id_lotniska_startowego" class="control-label"></label>
+                <input asp-for="Lot.id_lotniska_startowego" class="form-control" />
+                <span asp-validation-for="Lot.id_lotniska_startowego" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lot.id_lotniska_koncowego" class="control-label"></label>
+                <input asp-for="Lot.id_lotniska_koncowego" class="form-control" />
+                <span asp-validation-for="Lot.id_lotniska_koncowego" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Lot.id_lotu" />
+            <div class="form-group">
+                <label asp-for="Lot.id_samolotu" class="control-label"></label>
+                <input asp-for="Lot.id_samolotu" class="form-control" />
+                <span asp-validation-for="Lot.id_samolotu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using SBD.Models;
 
-namespace SBD.Pages.Bilety
+namespace SBD.Pages.Pasazerowie
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,11 @@ namespace SBD.Pages.Bilety
             _context = context;
         }
 
-        public IList<Bilet> Bilet { get;set; }
+        public IList<Pasazer> Pasazer { get;set; }
 
         public async Task OnGetAsync()
         {
-            Bilet = await _context.Bilet
-                .Include(b => b.Bagaz).ToListAsync();
+            Pasazer = await _context.Pasazer.ToListAsync();
         }
     }
 }

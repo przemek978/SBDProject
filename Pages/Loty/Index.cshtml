@@ -1,0 +1,54 @@
+﻿@page
+@model SBD.Pages.Loty.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lot[0].data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lot[0].id_lotniska_startowego)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lot[0].id_lotniska_koncowego)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lot[0].id_samolotu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Lot) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_lotniska_startowego)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_lotniska_koncowego)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_samolotu)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id_lotu">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id_lotu">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id_lotu">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

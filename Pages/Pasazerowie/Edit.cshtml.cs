@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using SBD.Models;
 
-namespace SBD.Pages.Bagaze
+namespace SBD.Pages.Pasazerowie
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace SBD.Pages.Bagaze
         }
 
         [BindProperty]
-        public Bagaz Bagaz { get; set; }
+        public Pasazer Pasazer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace SBD.Pages.Bagaze
                 return NotFound();
             }
 
-            Bagaz = await _context.Bagaz.FirstOrDefaultAsync(m => m.id_bagazu == id);
+            Pasazer = await _context.Pasazer.FirstOrDefaultAsync(m => m.id_pasazera == id);
 
-            if (Bagaz == null)
+            if (Pasazer == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace SBD.Pages.Bagaze
                 return Page();
             }
 
-            _context.Attach(Bagaz).State = EntityState.Modified;
+            _context.Attach(Pasazer).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace SBD.Pages.Bagaze
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BagazExists(Bagaz.id_bagazu))
+                if (!PasazerExists(Pasazer.id_pasazera))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace SBD.Pages.Bagaze
             return RedirectToPage("./Index");
         }
 
-        private bool BagazExists(int id)
+        private bool PasazerExists(int id)
         {
-            return _context.Bagaz.Any(e => e.id_bagazu == id);
+            return _context.Pasazer.Any(e => e.id_pasazera == id);
         }
     }
 }

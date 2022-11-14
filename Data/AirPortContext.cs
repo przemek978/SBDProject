@@ -39,5 +39,7 @@ namespace SBD.Data
                 .HasForeignKey(b => b.id_lotu).OnDelete(DeleteBehavior.Cascade);
 
         }
+        public DbSet<SBD.Models.Pasazer> Pasazer { get; set; }
+        public DbSet<SBD.Models.Lot> Lot { get; set; }
     }
 }

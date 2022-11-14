@@ -15,9 +15,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Bilet.id_biletu" />
             <div class="form-group">
-                <label asp-for="Bilet.id_bagazu" class="control-label"></label>
-                <input asp-for="Bilet.id_bagazu" class="form-control" />
-                <span asp-validation-for="Bilet.id_bagazu" class="text-danger"></span>
+                <label asp-for="Bilet.id_pasazera" class="control-label"></label>
+                <input asp-for="Bilet.id_pasazera" class="form-control" />
+                <span asp-validation-for="Bilet.id_pasazera" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Bilet.id_lotu" class="control-label"></label>
@@ -25,9 +25,9 @@
                 <span asp-validation-for="Bilet.id_lotu" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Bilet.id_pasazera" class="control-label"></label>
-                <input asp-for="Bilet.id_pasazera" class="form-control" />
-                <span asp-validation-for="Bilet.id_pasazera" class="text-danger"></span>
+                <label asp-for="Bilet.id_bagazu" class="control-label"></label>
+                <select asp-for="Bilet.id_bagazu" class="form-control" asp-items="ViewBag.id_bagazu"></select>
+                <span asp-validation-for="Bilet.id_bagazu" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using SBD.Models;
 
-namespace SBD.Pages.Bagaze
+namespace SBD.Pages.Loty
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace SBD.Pages.Bagaze
         }
 
         [BindProperty]
-        public Bagaz Bagaz { get; set; }
+        public Lot Lot { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace SBD.Pages.Bagaze
                 return NotFound();
             }
 
-            Bagaz = await _context.Bagaz.FirstOrDefaultAsync(m => m.id_bagazu == id);
+            Lot = await _context.Lot.FirstOrDefaultAsync(m => m.id_lotu == id);
 
-            if (Bagaz == null)
+            if (Lot == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace SBD.Pages.Bagaze
                 return Page();
             }
 
-            _context.Attach(Bagaz).State = EntityState.Modified;
+            _context.Attach(Lot).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace SBD.Pages.Bagaze
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BagazExists(Bagaz.id_bagazu))
+                if (!LotExists(Lot.id_lotu))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace SBD.Pages.Bagaze
             return RedirectToPage("./Index");
         }
 
-        private bool BagazExists(int id)
+        private bool LotExists(int id)
         {
-            return _context.Bagaz.Any(e => e.id_bagazu == id);
+            return _context.Lot.Any(e => e.id_lotu == id);
         }
     }
 }
