@@ -28,7 +28,7 @@ namespace SBD
             services.AddRazorPages();
 
             services.AddDbContext<AirPortContext>(options =>
-                    options.UseOracle(Configuration.GetConnectionString("AirPortContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("AirPortContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
