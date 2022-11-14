@@ -15,7 +15,7 @@ namespace SBD.Models
 
         public virtual Samolot Samolot { get; set; }
         public virtual Lotnisko Lotnisko { get; set; }
-        public virtual Lotnisko Lotnisko2 { get; set; }
+        //public virtual Lotnisko Lotnisko2 { get; set; }
         public virtual ICollection<PilotLot> Piloci { get; set; }
         public virtual ICollection<Bilet> Bilety { get; set; }
     }

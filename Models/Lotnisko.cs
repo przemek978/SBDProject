@@ -13,6 +13,6 @@ namespace SBD.Models
 
         public virtual ICollection<Pracownik> Pracownicy { get; set; }
         public virtual ICollection<Lot> LotyZ { get; set; }
-        public virtual ICollection<Lot> LotyDo { get; set; }
+        //public virtual ICollection<Lot> LotyDo { get; set; }
     }
 }
