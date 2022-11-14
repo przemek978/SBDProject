@@ -18,6 +18,12 @@
     <PackageReference Include="Oracle.Web" Version="21.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Bilety\" />
+    <Folder Include="Pages\Licencje\" />
+    <Folder Include="Pages\Samoloty\" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>
