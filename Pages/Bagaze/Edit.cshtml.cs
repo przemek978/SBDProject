@@ -23,7 +23,7 @@ namespace SBD.Pages.Bagaze
         [BindProperty]
         public Bagaz Bagaz { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(decimal? id)
         {
             if (id == null)
             {
@@ -69,7 +69,7 @@ namespace SBD.Pages.Bagaze
             return RedirectToPage("./Index");
         }
 
-        private bool BagazExists(int id)
+        private bool BagazExists(decimal id)
         {
             return _context.Bagaz.Any(e => e.id_bagazu == id);
         }
