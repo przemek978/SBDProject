@@ -21,7 +21,7 @@ namespace SBD.Pages.Bagaze
 
         public Bagaz Bagaz { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(decimal? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {

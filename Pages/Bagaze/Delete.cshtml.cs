@@ -22,7 +22,7 @@ namespace SBD.Pages.Bagaze
         [BindProperty]
         public Bagaz Bagaz { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(decimal? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
@@ -38,7 +38,7 @@ namespace SBD.Pages.Bagaze
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(decimal? id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
             {

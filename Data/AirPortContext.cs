@@ -25,10 +25,10 @@ namespace SBD.Data
             modelBuilder.Entity<Lot>().ToTable("LOT");
             modelBuilder.Entity<PilotLot>().ToTable("ProductCategory");
             modelBuilder.Entity<Pasazer>().ToTable("PASAZER");
-            modelBuilder.Entity<Bagaz>()
-            .HasOne(b => b.Bilet)
-            .WithOne(i => i.Bagaz)
-            .HasForeignKey<Bilet>(b => b.id_bagazu);
+            //modelBuilder.Entity<Bagaz>()
+            //.HasOne(b => b.Bilet)
+            //.WithOne(i => i.Bagaz)
+            //.HasForeignKey<Bilet>(b => b.id_bagazu);
 
             modelBuilder.Entity<PilotLot>().HasKey(c => new { c.id_pilota, c.id_lotu });
             modelBuilder.Entity<PilotLot>().HasOne(tc => tc.Pilot)
