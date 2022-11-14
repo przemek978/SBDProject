@@ -17,9 +17,10 @@ namespace SBD.Models
         public virtual Samolot Samolot { get; set; }
 
 
-        //public virtual Lotnisko Lotnisko_Startowe { get; set; }
+        public virtual Lotnisko Lotnisko { get; set; }
         //public virtual Lotnisko Lotnisko_Koncowe { get; set; }
 
+        [ForeignKey("id_lotu")]
         public virtual ICollection<PilotLot> Piloci { get; set; }
         [ForeignKey("id_lotu")]           ////must add to map bilet.id_lotu to this.id_lotu
 

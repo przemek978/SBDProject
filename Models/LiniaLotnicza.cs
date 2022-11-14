@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SBD.Models
 {
@@ -9,6 +10,7 @@ namespace SBD.Models
         public string kod { get; set; }
         public string nazwa { get; set; }
 
+        [ForeignKey("id_linii")]
         public virtual ICollection<Samolot> Samoloty { get; set; }
     }
 }
