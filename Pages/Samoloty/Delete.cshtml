@@ -1,0 +1,46 @@
+﻿@page
+@model SBD.Pages.Samoloty.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Samolot</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.typ)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.typ)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.ilosc_miejsc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.ilosc_miejsc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.LiniaLotnicza)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.LiniaLotnicza.kod)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Samolot.id_samolotu" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

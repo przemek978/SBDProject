@@ -1,0 +1,43 @@
+﻿@page
+@model SBD.Pages.Licencje.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Licencja</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Licencja.data_wydania" class="control-label"></label>
+                <input asp-for="Licencja.data_wydania" class="form-control" />
+                <span asp-validation-for="Licencja.data_wydania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Licencja.rodzaj_licencji" class="control-label"></label>
+                <input asp-for="Licencja.rodzaj_licencji" class="form-control" />
+                <span asp-validation-for="Licencja.rodzaj_licencji" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Licencja.id_pilota" class="control-label"></label>
+                <select asp-for="Licencja.id_pilota" class ="form-control" asp-items="ViewBag.id_pilota"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

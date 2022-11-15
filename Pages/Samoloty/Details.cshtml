@@ -1,0 +1,43 @@
+﻿@page
+@model SBD.Pages.Samoloty.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Samolot</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.typ)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.typ)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.ilosc_miejsc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.ilosc_miejsc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samolot.LiniaLotnicza)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samolot.LiniaLotnicza.kod)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Samolot.id_samolotu">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -21,10 +21,10 @@ namespace SBD.Data
         {
             modelBuilder.Entity<Bagaz>().ToTable("BAGAZ");
             modelBuilder.Entity<Bilet>().ToTable("BILET");
-            modelBuilder.Entity<Licencja>().ToTable("LICENCJA");
+            modelBuilder.Entity<Licencja>().ToTable("LICENCJE");
             modelBuilder.Entity<Lotnisko>().ToTable("LOTNISKO");
             modelBuilder.Entity<Lot>().ToTable("LOT");
-            modelBuilder.Entity<PilotLot>().ToTable("ProductCategory");
+            modelBuilder.Entity<PilotLot>().ToTable("PILOTLOT");
             modelBuilder.Entity<Pasazer>().ToTable("PASAZER");
             modelBuilder.Entity<Bagaz>()
             .HasOne(b => b.Bilet)
@@ -52,5 +52,11 @@ namespace SBD.Data
         }
         public DbSet<SBD.Models.Pasazer> Pasazer { get; set; }
         public DbSet<SBD.Models.Lot> Lot { get; set; }
+        public DbSet<SBD.Models.Licencja> Licencja { get; set; }
+        public DbSet<SBD.Models.LiniaLotnicza> LiniaLotnicza { get; set; }
+        public DbSet<SBD.Models.Samolot> Samolot { get; set; }
+        public DbSet<SBD.Models.Pilot> Pilot { get; set; }
+        public DbSet<SBD.Models.Pracownik> Pracownik { get; set; }
+        public DbSet<SBD.Models.Lotnisko> Lotnisko { get; set; }
     }
 }

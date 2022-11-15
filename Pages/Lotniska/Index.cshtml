@@ -1,0 +1,48 @@
+﻿@page
+@model SBD.Pages.Lotniska.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lotnisko[0].ilosc_miejsc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lotnisko[0].lokalizacja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lotnisko[0].nazwa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Lotnisko) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ilosc_miejsc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lokalizacja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nazwa)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id_lotniska">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id_lotniska">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id_lotniska">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

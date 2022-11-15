@@ -1,0 +1,42 @@
+﻿@page
+@model SBD.Pages.Piloci.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pilot[0].imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pilot[0].nazwisko)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pilot) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nazwisko)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id_pilota">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id_pilota">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id_pilota">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿@page
+@model SBD.Pages.Licencje.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Licencja[0].data_wydania)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Licencja[0].rodzaj_licencji)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Licencja[0].Pilot)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Licencja) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_wydania)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rodzaj_licencji)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pilot.id_pilota)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id_licencji">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id_licencji">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id_licencji">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

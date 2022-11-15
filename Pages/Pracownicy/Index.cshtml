@@ -1,0 +1,54 @@
+﻿@page
+@model SBD.Pages.Pracownicy.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].stanowisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Lotnisko)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pracownik) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stanowisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lotnisko.id_lotniska)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id_pracownika">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id_pracownika">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id_pracownika">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

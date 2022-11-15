@@ -20,9 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Pages\Licencje\" />
-    <Folder Include="Pages\LinieLotnicze\" />
-    <Folder Include="Pages\Samoloty\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
