@@ -28,7 +28,10 @@ namespace SBD.Pages.Loty
                 return NotFound();
             }
 
-            Lot = await _context.Lot.FirstOrDefaultAsync(m => m.id_lotu == id);
+            Lot = await _context.Lot
+                .Include(l => l.Lotnisko)
+                .Include(l => l.Lotnisko_Koncowe)
+                .Include(l => l.Samolot).FirstOrDefaultAsync(m => m.id_lotu == id);
 
             if (Lot == null)
             {

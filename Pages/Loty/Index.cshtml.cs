@@ -23,7 +23,10 @@ namespace SBD.Pages.Loty
 
         public async Task OnGetAsync()
         {
-            Lot = await _context.Lot.ToListAsync();
+            Lot = await _context.Lot
+                .Include(l => l.Lotnisko)
+                .Include(l => l.Lotnisko_Koncowe)
+                .Include(l => l.Samolot).ToListAsync();
         }
     }
 }

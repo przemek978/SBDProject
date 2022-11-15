@@ -17,13 +17,13 @@
                 @Html.DisplayNameFor(model => model.Lot[0].data)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lot[0].id_lotniska_startowego)
+                @Html.DisplayNameFor(model => model.Lot[0].Samolot)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lot[0].id_lotniska_koncowego)
+                @Html.DisplayNameFor(model => model.Lot[0].Lotnisko)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lot[0].id_samolotu)
+                @Html.DisplayNameFor(model => model.Lot[0].Lotnisko_Koncowe)
             </th>
             <th></th>
         </tr>
@@ -35,13 +35,13 @@
                 @Html.DisplayFor(modelItem => item.data)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id_lotniska_startowego)
+                @Html.DisplayFor(modelItem => item.Samolot.id_samolotu)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id_lotniska_koncowego)
+                @Html.DisplayFor(modelItem => item.Lotnisko.id_lotniska)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id_samolotu)
+                @Html.DisplayFor(modelItem => item.Lotnisko_Koncowe.id_lotniska)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.id_lotu">Edit</a> |

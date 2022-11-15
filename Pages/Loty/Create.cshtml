@@ -20,18 +20,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Lot.id_lotniska_startowego" class="control-label"></label>
-                <input asp-for="Lot.id_lotniska_startowego" class="form-control" />
-                <span asp-validation-for="Lot.id_lotniska_startowego" class="text-danger"></span>
+                <select asp-for="Lot.id_lotniska_startowego" class ="form-control" asp-items="ViewBag.id_lotniska_startowego"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Lot.id_lotniska_koncowego" class="control-label"></label>
-                <input asp-for="Lot.id_lotniska_koncowego" class="form-control" />
-                <span asp-validation-for="Lot.id_lotniska_koncowego" class="text-danger"></span>
+                <select asp-for="Lot.id_lotniska_koncowego" class ="form-control" asp-items="ViewBag.id_lotniska_koncowego"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Lot.id_samolotu" class="control-label"></label>
-                <input asp-for="Lot.id_samolotu" class="form-control" />
-                <span asp-validation-for="Lot.id_samolotu" class="text-danger"></span>
+                <select asp-for="Lot.id_samolotu" class ="form-control" asp-items="ViewBag.id_samolotu"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

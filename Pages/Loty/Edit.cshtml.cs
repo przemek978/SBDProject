@@ -30,12 +30,18 @@ namespace SBD.Pages.Loty
                 return NotFound();
             }
 
-            Lot = await _context.Lot.FirstOrDefaultAsync(m => m.id_lotu == id);
+            Lot = await _context.Lot
+                .Include(l => l.Lotnisko)
+                .Include(l => l.Lotnisko_Koncowe)
+                .Include(l => l.Samolot).FirstOrDefaultAsync(m => m.id_lotu == id);
 
             if (Lot == null)
             {
                 return NotFound();
             }
+           ViewData["id_lotniska_startowego"] = new SelectList(_context.Lotnisko, "id_lotniska", "id_lotniska");
+           ViewData["id_lotniska_koncowego"] = new SelectList(_context.Lotnisko, "id_lotniska", "id_lotniska");
+           ViewData["id_samolotu"] = new SelectList(_context.Samolot, "id_samolotu", "id_samolotu");
             return Page();
         }
 
