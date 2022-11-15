@@ -19,8 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Bilet.id_lotu" class="control-label"></label>
-                <input asp-for="Bilet.id_lotu" class="form-control" />
-                <span asp-validation-for="Bilet.id_lotu" class="text-danger"></span>
+                <select asp-for="Bilet.id_lotu" class ="form-control" asp-items="ViewBag.id_lotu"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Bilet.id_bagazu" class="control-label"></label>
