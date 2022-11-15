@@ -12,5 +12,9 @@ namespace SBD.Models
 
         [ForeignKey("id_linii")]
         public virtual ICollection<Samolot> Samoloty { get; set; }
+
+        [ForeignKey("kod_linii")]
+        public virtual ICollection<Pilot> Piloci { get; set; }
+
     }
 }

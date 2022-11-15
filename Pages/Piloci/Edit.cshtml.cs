@@ -30,12 +30,14 @@ namespace SBD.Pages.Piloci
                 return NotFound();
             }
 
-            Pilot = await _context.Pilot.FirstOrDefaultAsync(m => m.id_pilota == id);
+            Pilot = await _context.Pilot
+                .Include(p => p.linia).FirstOrDefaultAsync(m => m.id_pilota == id);
 
             if (Pilot == null)
             {
                 return NotFound();
             }
+           ViewData["kod_linii"] = new SelectList(_context.LiniaLotnicza, "kod", "kod");
             return Page();
         }
 

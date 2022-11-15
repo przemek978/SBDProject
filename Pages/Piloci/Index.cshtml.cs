@@ -23,7 +23,8 @@ namespace SBD.Pages.Piloci
 
         public async Task OnGetAsync()
         {
-            Pilot = await _context.Pilot.ToListAsync();
+            Pilot = await _context.Pilot
+                .Include(p => p.linia).ToListAsync();
         }
     }
 }
