@@ -16,7 +16,7 @@ namespace SBD.Models
         public LiniaLotnicza linia { get; set; }
 
         //[ForeignKey("id_kapitana")]
-        public virtual List<Lot> Loty_Dowodcy { get; set; }
+        public virtual List<Lot> Loty_Kapitana { get; set; }
         //[ForeignKey("id_oficera")]
         public virtual List<Lot> Loty_Oficera { get; set; }
 

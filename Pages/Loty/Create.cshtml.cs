@@ -21,8 +21,10 @@ namespace SBD.Pages.Loty
 
         public IActionResult OnGet()
         {
+        ViewData["id_kapitana"] = new SelectList(_context.Pilot, "id_pilota", "id_pilota");
         ViewData["id_lotniska_startowego"] = new SelectList(_context.Lotnisko, "id_lotniska", "id_lotniska");
         ViewData["id_lotniska_koncowego"] = new SelectList(_context.Lotnisko, "id_lotniska", "id_lotniska");
+        ViewData["id_oficera"] = new SelectList(_context.Pilot, "id_pilota", "id_pilota");
         ViewData["id_samolotu"] = new SelectList(_context.Samolot, "id_samolotu", "id_samolotu");
             return Page();
         }

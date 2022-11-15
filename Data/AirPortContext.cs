@@ -24,7 +24,7 @@ namespace SBD.Data
             modelBuilder.Entity<Licencja>().ToTable("LICENCJE");
             modelBuilder.Entity<Lotnisko>().ToTable("LOTNISKO");
             modelBuilder.Entity<Lot>().ToTable("LOT");
-            modelBuilder.Entity<PilotLot>().ToTable("PILOTLOT");
+            modelBuilder.Entity<Pilot>().ToTable("PILOT");
             modelBuilder.Entity<Pasazer>().ToTable("PASAZER");
             modelBuilder.Entity<Bagaz>()
             .HasOne(b => b.Bilet)
@@ -39,6 +39,17 @@ namespace SBD.Data
                 entity.HasMany(p => p.Odloty)
                     .WithOne(d => d.Lotnisko)
                     .HasForeignKey(d => d.id_lotniska_startowego);
+            });
+
+            modelBuilder.Entity<Pilot>(entity =>
+            {
+                entity.HasMany(p => p.Loty_Kapitana)
+                    .WithOne(d => d.Kapitan)
+                    .HasForeignKey(d => d.id_kapitana);
+
+                entity.HasMany(p => p.Loty_Oficera)
+                    .WithOne(d => d.Oficer)
+                    .HasForeignKey(d => d.id_oficera);
             });
 
             //modelBuilder.Entity<PilotLot>().HasKey(c => new { c.id_pilota, c.id_lotu });
