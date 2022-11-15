@@ -25,8 +25,7 @@ namespace SBD.Models
         public int id_oficera { get; set; }
         public virtual Pilot Oficer { get; set; }
         //[ForeignKey("id_lotu")]
-        //[ForeignKey("id_lotu")]           ////must add to map bilet.id_lotu to this.id_lotu
-
+        [ForeignKey("id_lotu")]           ////must add to map bilet.id_lotu to this.id_lotu
         public virtual ICollection<Bilet> Bilety { get; set; }
     }
 }
