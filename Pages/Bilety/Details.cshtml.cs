@@ -30,7 +30,6 @@ namespace SBD.Pages.Bilety
 
             Bilet = await _context.Bilet
                 .Include(b => b.Bagaz)
-                .Include(b => b.Lot)
                 .Include(b => b.Pasazer).FirstOrDefaultAsync(m => m.id_biletu == id);
 
             if (Bilet == null)

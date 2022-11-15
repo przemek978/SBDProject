@@ -25,7 +25,6 @@ namespace SBD.Pages.Bilety
         {
             Bilet = await _context.Bilet
                 .Include(b => b.Bagaz)
-                .Include(b => b.Lot)
                 .Include(b => b.Pasazer).ToListAsync();
         }
     }

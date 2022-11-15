@@ -32,7 +32,6 @@ namespace SBD.Pages.Bilety
 
             Bilet = await _context.Bilet
                 .Include(b => b.Bagaz)
-                .Include(b => b.Lot)
                 .Include(b => b.Pasazer).FirstOrDefaultAsync(m => m.id_biletu == id);
 
             if (Bilet == null)
@@ -40,7 +39,6 @@ namespace SBD.Pages.Bilety
                 return NotFound();
             }
            ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
-           ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
            ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
             return Page();
         }
