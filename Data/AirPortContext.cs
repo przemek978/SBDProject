@@ -40,7 +40,24 @@ namespace SBD.Data
                     .HasForeignKey(d => d.id_lotniska_startowego);
             });
 
-            
+            modelBuilder.Entity<Pilot>(entity =>
+            {
+                entity.HasMany(p => p.Loty_Kapitana)
+                    .WithOne(d => d.Kapitan)
+                    .HasForeignKey(d => d.id_kapitana);
+
+                entity.HasMany(p => p.Loty_Oficera)
+                    .WithOne(d => d.Oficer)
+                    .HasForeignKey(d => d.id_oficera);
+            });
+
+            //modelBuilder.Entity<PilotLot>().HasKey(c => new { c.id_pilota, c.id_lotu });
+            //modelBuilder.Entity<PilotLot>().HasOne(tc => tc.Pilot)
+            //    .WithMany(t => t.Loty)
+            //    .HasForeignKey(b => b.id_pilota).OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<PilotLot>().HasOne(pc => pc.Lot)
+            //    .WithMany(c => c.Piloci)
+            //    .HasForeignKey(b => b.id_lotu).OnDelete(DeleteBehavior.Cascade);
 
         }
         public DbSet<SBD.Models.Pasazer> Pasazer { get; set; }

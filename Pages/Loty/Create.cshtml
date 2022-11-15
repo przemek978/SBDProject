@@ -19,6 +19,10 @@
                 <span asp-validation-for="Lot.data" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Lot.id_samolotu" class="control-label"></label>
+                <select asp-for="Lot.id_samolotu" class ="form-control" asp-items="ViewBag.id_samolotu"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="Lot.id_lotniska_startowego" class="control-label"></label>
                 <select asp-for="Lot.id_lotniska_startowego" class ="form-control" asp-items="ViewBag.id_lotniska_startowego"></select>
             </div>
@@ -27,8 +31,12 @@
                 <select asp-for="Lot.id_lotniska_koncowego" class ="form-control" asp-items="ViewBag.id_lotniska_koncowego"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Lot.id_samolotu" class="control-label"></label>
-                <select asp-for="Lot.id_samolotu" class ="form-control" asp-items="ViewBag.id_samolotu"></select>
+                <label asp-for="Lot.id_kapitana" class="control-label"></label>
+                <select asp-for="Lot.id_kapitana" class ="form-control" asp-items="ViewBag.id_kapitana"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lot.id_oficera" class="control-label"></label>
+                <select asp-for="Lot.id_oficera" class ="form-control" asp-items="ViewBag.id_oficera"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

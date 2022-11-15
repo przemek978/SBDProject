@@ -29,8 +29,10 @@ namespace SBD.Pages.Loty
             }
 
             Lot = await _context.Lot
+                .Include(l => l.Kapitan)
                 .Include(l => l.Lotnisko)
                 .Include(l => l.Lotnisko_Koncowe)
+                .Include(l => l.Oficer)
                 .Include(l => l.Samolot).FirstOrDefaultAsync(m => m.id_lotu == id);
 
             if (Lot == null)
