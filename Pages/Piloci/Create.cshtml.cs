@@ -21,6 +21,7 @@ namespace SBD.Pages.Piloci
 
         public IActionResult OnGet()
         {
+        ViewData["kod_linii"] = new SelectList(_context.LiniaLotnicza, "kod", "kod");
             return Page();
         }
 

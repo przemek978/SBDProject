@@ -7,10 +7,12 @@ namespace SBD.Models
 {
     public class Pilot
     {
-        public string imie { get; set; }
-        public string nazwisko { get; set; }
         [Key]
         public int id_pilota { get; set; }
+        public string imie { get; set; }
+        public string nazwisko { get; set; }
+
+        public string kod_linii { get; set; }
         public LiniaLotnicza linia { get; set; }
 
         [ForeignKey("id_pilota")]

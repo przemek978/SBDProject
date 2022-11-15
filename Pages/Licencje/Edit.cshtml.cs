@@ -37,7 +37,7 @@ namespace SBD.Pages.Licencje
             {
                 return NotFound();
             }
-           ViewData["id_pilota"] = new SelectList(_context.Set<Pilot>(), "id_pilota", "id_pilota");
+           ViewData["id_pilota"] = new SelectList(_context.Pilot, "id_pilota", "id_pilota");
             return Page();
         }
 
