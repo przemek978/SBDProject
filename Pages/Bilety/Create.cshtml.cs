@@ -21,22 +21,33 @@ namespace SBD.Pages.Bilety
 
         public IActionResult OnGet()
         {
-        ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
-        ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
-        ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
+            ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
+            ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
+            ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
             return Page();
         }
 
         [BindProperty]
         public Bilet Bilet { get; set; }
-
+        public string temp_miejsce { get; set; }
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+
+            bool if_correct = Bilet.przydziel_miejsce(Bilet.nr_miejsca);
+                
+            if (!if_correct)
+            {
+                return Page();
+            }
+
+            
 
             _context.Bilet.Add(Bilet);
             await _context.SaveChangesAsync();

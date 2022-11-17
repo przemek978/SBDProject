@@ -17,6 +17,9 @@
                 @Html.DisplayNameFor(model => model.Bilet[0].Pasazer)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Bilet[0].nr_miejsca)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Bilet[0].Lot)
             </th>
             <th>
@@ -30,6 +33,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Pasazer.id_pasazera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nr_miejsca)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Lot.id_lotu)

@@ -17,5 +17,10 @@ namespace SBD.Models
 
         [ForeignKey("id_samolotu")]
         public virtual ICollection<Lot> Loty { get; set; }
+
+        public int pobierz_ilosc_miejsc()
+        {
+            return this.ilosc_miejsc;
+        }
     }
 }
