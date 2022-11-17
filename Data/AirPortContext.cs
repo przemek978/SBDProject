@@ -21,6 +21,10 @@ namespace SBD.Data
         {
             modelBuilder.Entity<Bagaz>().ToTable("BAGAZ");
             modelBuilder.Entity<Bilet>().ToTable("BILET");
+            modelBuilder.Entity<LiniaLotnicza>().ToTable("LINIALOTNICZA");
+            modelBuilder.Entity<Pilot>().ToTable("PILOT");
+            modelBuilder.Entity<Pracownik>().ToTable("PRACOWNIK");
+            modelBuilder.Entity<Samolot>().ToTable("SAMOLOT");
             modelBuilder.Entity<Licencja>().ToTable("LICENCJE");
             modelBuilder.Entity<Lotnisko>().ToTable("LOTNISKO");
             modelBuilder.Entity<Lot>().ToTable("LOT");
@@ -51,13 +55,7 @@ namespace SBD.Data
                     .HasForeignKey(d => d.id_oficera);
             });
 
-            //modelBuilder.Entity<PilotLot>().HasKey(c => new { c.id_pilota, c.id_lotu });
-            //modelBuilder.Entity<PilotLot>().HasOne(tc => tc.Pilot)
-            //    .WithMany(t => t.Loty)
-            //    .HasForeignKey(b => b.id_pilota).OnDelete(DeleteBehavior.Cascade);
-            //modelBuilder.Entity<PilotLot>().HasOne(pc => pc.Lot)
-            //    .WithMany(c => c.Piloci)
-            //    .HasForeignKey(b => b.id_lotu).OnDelete(DeleteBehavior.Cascade);
+          
 
         }
         public DbSet<SBD.Models.Pasazer> Pasazer { get; set; }
