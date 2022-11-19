@@ -40,12 +40,12 @@ namespace SBD.Pages.Bilety
             }
 
 
-            bool if_correct = Bilet.przydziel_miejsce(Bilet.nr_miejsca);
+            //bool if_correct = Bilet.przydziel_miejsce(int.Parse(temp_miejsce));
                 
-            if (!if_correct)
-            {
-                return Page();
-            }
+            //if (!if_correct)
+            //{
+            //    return Page();
+            //}
 
             
 

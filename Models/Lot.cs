@@ -14,7 +14,6 @@ namespace SBD.Models
         public Hashtable miejsca = new Hashtable();
         public int id_samolotu { get; set; }
         public virtual Samolot Samolot { get; set; }
-        //public Hashtable dd = new Hashtable();
 
         public int id_lotniska_startowego { get; set; }
         public virtual Lotnisko Lotnisko { get; set; }
@@ -26,7 +25,6 @@ namespace SBD.Models
         public virtual Pilot Kapitan { get; set; }
         public int id_oficera { get; set; }
         public virtual Pilot Oficer { get; set; }
-        //[ForeignKey("id_lotu")]
         [ForeignKey("id_lotu")]           ////must add to map bilet.id_lotu to this.id_lotu
         public virtual ICollection<Bilet> Bilety { get; set; }
     }

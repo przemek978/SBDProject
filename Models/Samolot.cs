@@ -6,11 +6,11 @@ namespace SBD.Models
 {
     public class Samolot
     {
+        [Key]
+        public int id_samolotu { set; get; }
         public string model { set; get; }
         public string typ { set; get; }
         public int ilosc_miejsc { set; get; }
-        [Key]
-        public int id_samolotu { set; get; }
 
         public string id_linii { get; set; }
         public virtual LiniaLotnicza LiniaLotnicza { get; set; }
