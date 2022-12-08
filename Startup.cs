@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SBD.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace SBD
 {
@@ -25,7 +26,21 @@ namespace SBD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+			services.AddAuthentication("CookieAuthentication")
+            .AddCookie("CookieAuthentication", config =>
+            {
+	             config.Cookie.HttpOnly = true;
+	            config.Cookie.SecurePolicy = CookieSecurePolicy.None;
+	             config.Cookie.Name = "UserLoginCookie";
+	            config.LoginPath = "/Login/";
+	            config.Cookie.SameSite = SameSiteMode.Strict;
+ });
+			services.AddRazorPages(options => {
+				options.Conventions.AuthorizeFolder("/admin");
+			});
+
+
+			services.AddRazorPages();
 
             services.AddDbContext<AirPortContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AirPortContext")));
@@ -50,7 +65,11 @@ namespace SBD
 
             app.UseRouting();
 
-            app.UseAuthorization();
+			app.UseCookiePolicy();
+			app.UseAuthentication();
+
+
+			app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
