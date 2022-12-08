@@ -21,7 +21,7 @@ namespace SBD.Models
         [Display(Name = "Lotnisko Startowe")]
         public int id_lotniska_startowego { get; set; }
         public virtual Lotnisko Lotnisko { get; set; }
-        [Display(Name = "Lotnisko końcowe")]
+        [Display(Name = "Lotnisko Końcowe")]
         public int id_lotniska_koncowego { get; set; }
         public virtual Lotnisko Lotnisko_Koncowe { get; set; }
 
