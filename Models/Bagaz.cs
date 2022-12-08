@@ -6,7 +6,9 @@ namespace SBD.Models
     public class Bagaz
     {
         [Key]
+        [Display(Name = "ID")]
         public int id_bagazu { get; set; }
+        [Display(Name = "Waga")]
         public int waga { get; set; }
         public Bilet Bilet { get; set; }
         public Bagaz()

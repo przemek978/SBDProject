@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using SBD.Models;
@@ -23,6 +24,8 @@ namespace SBD.Pages.Bilety
 
         public async Task OnGetAsync()
         {
+            ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "ID", "imie");
+
             Bilet = await _context.Bilet
                 .Include(b => b.Bagaz)
                 .Include(b => b.Lot)

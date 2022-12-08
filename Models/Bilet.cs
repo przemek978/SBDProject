@@ -7,15 +7,17 @@ namespace SBD.Models
     {
     
         [Key]
+        [Display(Name = "ID")]
         public int id_biletu { get; set; }
-
+        [Display(Name = "Pasażer")]
         public int id_pasazera { get; set; }
         public virtual Pasazer Pasazer { get; set; }
-
+        [Display(Name = "Nr Miejsca w samolocie")]
         public int nr_miejsca { get; set; }
+        [Display(Name = "Lot")]
         public int id_lotu { get; set; }
         public virtual Lot Lot { get; set; }
-
+        [Display(Name = "Bagaż")]
         public int id_bagazu { get; set; }
         public virtual Bagaz Bagaz { get; set; }
         public bool przydziel_miejsce(int nr)
