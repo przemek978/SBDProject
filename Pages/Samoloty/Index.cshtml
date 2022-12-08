@@ -8,7 +8,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Dodaj">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.LiniaLotnicza.kod)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.id_samolotu">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id_samolotu">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id_samolotu">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.id_samolotu">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.id_samolotu">Szczegóły</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id_samolotu">Usuń</a>
             </td>
         </tr>
 }
