@@ -2,13 +2,13 @@
 @model SBD.Pages.Bagaze.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bagaże";
 }
 
-<h1>Index</h1>
+<h1>Bagaże</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Dodaj</a>
 </p>
 <table class="table">
     <thead>
@@ -23,7 +23,7 @@
 @foreach (var item in Model.Bagaz) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.waga)
+                    @Html.DisplayFor(modelItem => item.waga) kg
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.id_bagazu">Edit</a> |

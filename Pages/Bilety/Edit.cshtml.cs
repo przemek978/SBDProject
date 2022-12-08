@@ -39,10 +39,10 @@ namespace SBD.Pages.Bilety
             {
                 return NotFound();
             }
-           ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
-           ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
-           ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
-            return Page();
+            ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "waga");
+            ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
+            ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
+           return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.

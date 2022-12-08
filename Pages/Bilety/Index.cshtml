@@ -32,7 +32,8 @@
 @foreach (var item in Model.Bilet) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Pasazer.id_pasazera)
+                @Html.DisplayFor(modelItem => item.Pasazer.imie)
+                @Html.DisplayFor(modelItem => item.Pasazer.nazwisko)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.nr_miejsca)
