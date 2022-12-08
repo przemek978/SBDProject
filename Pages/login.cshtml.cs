@@ -5,23 +5,29 @@ using Microsoft.Extensions.Configuration;
 using SBD.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System;
+using Microsoft.AspNetCore.Authentication;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace SBD.Pages
 {
-    public class loginModel : PageModel
+    public class LoginModel : PageModel
     {
 		private readonly IConfiguration _configuration;
 		public string Message { get; set; }
 		[BindProperty]
 		public User user { get; set; }
-		public loginModel(IConfiguration configuration)
+		public LoginModel(IConfiguration configuration)
 		{
 			_configuration = configuration;
 		}
 		public bool ValidateUser(User user)
 		{
+			string conn = _configuration.GetConnectionString("AirPortContext");
+			SqlConnection connection = new SqlConnection(conn);
 			string query = "SELECT nazwa_uzytkownika, haslo FROM pracownik";
-			using (SqlCommand command = new SqlCommand(query))
+			using (SqlCommand command = new SqlCommand(query, connection))
 			{
 				using (SqlDataReader reader = command.ExecuteReader())
 				{
@@ -33,8 +39,24 @@ namespace SBD.Pages
 				}
 			}
 			return false;
-
 		}
+
+		public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+		{
+			if (ValidateUser(user))
+			{
+				var claims = new List<Claim>()
+				{
+					new Claim(ClaimTypes.Name, user.nazwa_uzytkownika)
+				};
+				var claimsIdentity = new ClaimsIdentity(claims, "CookieAuthentication");
+				await HttpContext.SignInAsync("CookieAuthentication", new
+			   ClaimsPrincipal(claimsIdentity));
+				return RedirectToPage(returnUrl);
+			}
+			return Page();
+		}
+
 		public void OnGet()
 		{
 		}
