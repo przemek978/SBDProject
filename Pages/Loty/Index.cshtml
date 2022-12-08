@@ -41,19 +41,21 @@
                 @Html.DisplayFor(modelItem => item.data)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Samolot.id_samolotu)
+                @Html.DisplayFor(modelItem => item.Samolot.model)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lotnisko.id_lotniska)
+                @Html.DisplayFor(modelItem => item.Lotnisko.nazwa)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lotnisko_Koncowe.id_lotniska)
+                @Html.DisplayFor(modelItem => item.Lotnisko_Koncowe.nazwa)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kapitan.id_pilota)
+                @Html.DisplayFor(modelItem => item.Kapitan.imie)
+                @Html.DisplayFor(modelItem => item.Kapitan.nazwisko)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Oficer.id_pilota)
+                @Html.DisplayFor(modelItem => item.Oficer.imie)
+                @Html.DisplayFor(modelItem => item.Oficer.nazwisko)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.id_lotu">Edytuj</a> |

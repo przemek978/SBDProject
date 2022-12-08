@@ -23,5 +23,6 @@ namespace SBD.Models
 
         [ForeignKey("id_pilota")]
         public virtual ICollection<Licencja> Licencje { get; set; }
+                
     }
 }

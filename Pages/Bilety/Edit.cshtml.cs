@@ -39,9 +39,23 @@ namespace SBD.Pages.Bilety
             {
                 return NotFound();
             }
-            ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "waga");
+
+            var selBag = _context.Bagaz.Select(c => new SelectListItem
+            {
+                Value = c.id_bagazu.ToString(),
+                Text = c.id_bagazu.ToString() + " - " + c.waga.ToString() + "kg"
+            });
+            var selPas = _context.Pasazer.Select(c => new SelectListItem
+            {
+                Value = c.id_pasazera.ToString(),
+                Text = c.id_pasazera.ToString() + " - " + c.imie.ToString() + " " + c.nazwisko.ToString()
+            });
+
+            //ViewData["id_kapitana"] = new SelectList(selectPilot, "Value", "Text");
+
+            ViewData["id_bagazu"] = new SelectList(selBag, "Value", "Text");
             ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
-            ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
+            ViewData["id_pasazera"] = new SelectList(selPas, "Value", "Text");
            return Page();
         }
 

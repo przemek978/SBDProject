@@ -37,7 +37,13 @@ namespace SBD.Pages.Pracownicy
             {
                 return NotFound();
             }
-           ViewData["id_lotniska"] = new SelectList(_context.Set<Lotnisko>(), "id_lotniska", "id_lotniska");
+            var sel = _context.Lotnisko.Select(c => new SelectListItem
+            {
+                Value = c.id_lotniska.ToString(),
+                Text = c.lokalizacja.ToString() + " - " + c.nazwa.ToString()
+            });
+            ViewData["id_lotniska"] = new SelectList(sel, "Value", "Text");
+            //ViewData["id_lotniska"] = new SelectList(_context.Set<Lotnisko>(), "id_lotniska", "id_lotniska");
             return Page();
         }
 

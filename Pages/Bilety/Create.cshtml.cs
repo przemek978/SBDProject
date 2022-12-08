@@ -21,9 +21,30 @@ namespace SBD.Pages.Bilety
 
         public IActionResult OnGet()
         {
-            ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
-            ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
-            ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "id_pasazera", "id_pasazera");
+
+            var selBagaz = _context.Bagaz.Select(c => new SelectListItem
+            {
+                Value = c.id_bagazu.ToString(),
+                Text = c.id_bagazu.ToString() + " - " + c.waga.ToString() + "kg"
+            });
+
+            var selLot = _context.Lot.Select(c => new SelectListItem
+            {
+                Value = c.id_lotu.ToString(),
+                Text = c.Lotnisko.lokalizacja.ToString().Substring(0,3) + " -> " + c.Lotnisko_Koncowe.lokalizacja.ToString().Substring(0, 3) + " Czas: " + c.data.ToString("dd.MM.yyyy HH:mm")
+            });
+
+            ViewData["id_bagazu"] = new SelectList(selBagaz, "Value", "Text");
+
+            var selPas = _context.Pasazer.Select(c => new SelectListItem
+            {
+                Value = c.id_pasazera.ToString(),
+                Text = c.id_pasazera.ToString() + " - " + c.imie.ToString() + " " + c.nazwisko.ToString()
+            });
+
+            //ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
+            ViewData["id_lotu"] = new SelectList(selLot, "Value", "Text");
+            ViewData["id_pasazera"] = new SelectList(selPas, "Value", "Text");
             return Page();
         }
 

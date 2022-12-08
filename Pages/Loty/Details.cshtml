@@ -5,7 +5,7 @@
     ViewData["Title"] = "Szczegóły lotu";
 }
 
-<h1>Szczegóły lotu</h1>
+<h1>Szczegóły </h1>
 
 <div>
     <h4>Lot</h4>
@@ -21,31 +21,33 @@
             @Html.DisplayNameFor(model => model.Lot.Samolot)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lot.Samolot.id_samolotu)
+            @Html.DisplayFor(model => model.Lot.Samolot.model)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Lot.Lotnisko)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lot.Lotnisko.id_lotniska)
+            @Html.DisplayFor(model => model.Lot.Lotnisko.nazwa)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Lot.Lotnisko_Koncowe)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lot.Lotnisko_Koncowe.id_lotniska)
+            @Html.DisplayFor(model => model.Lot.Lotnisko_Koncowe.nazwa)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Lot.Kapitan)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lot.Kapitan.id_pilota)
+            @Html.DisplayFor(model => model.Lot.Kapitan.imie)
+            @Html.DisplayFor(model => model.Lot.Kapitan.nazwisko)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Lot.Oficer)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lot.Oficer.id_pilota)
+            @Html.DisplayFor(model => model.Lot.Oficer.imie)
+            @Html.DisplayFor(model => model.Lot.Oficer.nazwisko)
         </dd>
     </dl>
 </div>

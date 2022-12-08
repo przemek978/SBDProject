@@ -39,7 +39,11 @@ namespace SBD.Pages.Loty
             {
                 return NotFound();
             }
+
+
+
             return Page();
         }
+
     }
 }

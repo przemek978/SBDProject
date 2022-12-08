@@ -35,7 +35,8 @@
                 @Html.DisplayFor(modelItem => item.rodzaj_licencji)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Pilot.id_pilota)
+                @Html.DisplayFor(modelItem => item.Pilot.imie)
+                @Html.DisplayFor(modelItem => item.Pilot.nazwisko)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.id_licencji">Edytuj</a> |

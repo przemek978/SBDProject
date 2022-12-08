@@ -37,7 +37,12 @@ namespace SBD.Pages.Licencje
             {
                 return NotFound();
             }
-           ViewData["id_pilota"] = new SelectList(_context.Pilot, "id_pilota", "id_pilota");
+            var sel = _context.Pilot.Select(c => new SelectListItem
+            {
+                Value = c.id_pilota.ToString(),
+                Text = c.id_pilota.ToString() + " - " + c.imie.ToString() + " " + c.nazwisko.ToString()
+            });
+            ViewData["id_pilota"] = new SelectList(sel, "Value", "Text");
             return Page();
         }
 

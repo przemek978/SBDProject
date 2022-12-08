@@ -28,13 +28,14 @@
             @Html.DisplayNameFor(model => model.Licencja.Pilot)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Licencja.Pilot.id_pilota)
+            @Html.DisplayFor(model => model.Licencja.Pilot.imie)
+            @Html.DisplayFor(model => model.Licencja.Pilot.nazwisko)
         </dd>
     </dl>
     
     <form method="post">
         <input type="hidden" asp-for="Licencja.id_licencji" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
         <a asp-page="./Index">Powrót do listy</a>
     </form>
 </div>
