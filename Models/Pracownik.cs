@@ -10,8 +10,8 @@ namespace SBD.Models
         public string imie { get; set; }
         public string nazwisko { get; set; }
         public string stanowisko { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
+        public string nazwa_uzytkownika { get; set; }
+        public string haslo { get; set; }
 
         public virtual Lotnisko Lotnisko { get; set; }
 
