@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SBD.Models
 {
-    public class Pilot
+    public class Pilot:User
     {
         [Key]
         public int id_pilota { get; set; }
@@ -15,8 +15,8 @@ namespace SBD.Models
         public string kod_linii { get; set; }
         public LiniaLotnicza linia { get; set; }
 
-        public string nazwa_uzytkownika { get; set; }
-        public string haslo { get; set; }  
+        //public string nazwa_uzytkownika { get; set; }
+        //public string haslo { get; set; }  
 
         public virtual List<Lot> Loty_Kapitana { get; set; }
         public virtual List<Lot> Loty_Oficera { get; set; }
