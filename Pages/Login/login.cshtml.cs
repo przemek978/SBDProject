@@ -55,7 +55,8 @@ namespace SBD.Pages.Login
                ClaimsPrincipal(claimsIdentity));
                 return RedirectToPage(returnUrl);
             }
-            return Page();
+            //return Page();
+            return RedirectToPage("/Index");
         }
 
         public void OnGet()
