@@ -7,7 +7,9 @@ namespace SBD.Models
     public class LiniaLotnicza
     {
         [Key]
+        [Display(Name = "Kod Linii")]
         public string kod { get; set; }
+        [Display(Name = "Nazwa linii")]
         public string nazwa { get; set; }
 
         [ForeignKey("id_linii")]

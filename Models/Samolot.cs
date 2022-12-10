@@ -7,11 +7,15 @@ namespace SBD.Models
     public class Samolot
     {
         [Key]
+        [Display(Name = "ID")]
         public int id_samolotu { set; get; }
+        [Display(Name = "Model smaolotu")]
         public string model { set; get; }
+        [Display(Name = "Typ")]
         public string typ { set; get; }
+        [Display(Name = "Ilość miejsc")]
         public int ilosc_miejsc { set; get; }
-
+        [Display(Name = "Linia lotnicza")]
         public string id_linii { get; set; }
         public virtual LiniaLotnicza LiniaLotnicza { get; set; }
 

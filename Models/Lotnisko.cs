@@ -7,9 +7,13 @@ namespace SBD.Models
     public class Lotnisko
     {
         [Key]
+        [Display(Name = "ID")]
         public int id_lotniska { get; set; }
+        [Display(Name = "Ilość miejsc")]
         public int ilosc_miejsc { get; set; }
+        [Display(Name = "Miasto")]
         public string lokalizacja { get; set; }
+        [Display(Name = "Nazwa lotniska")]
         public string nazwa { get; set; }
 
         [ForeignKey("id_lotniska")]

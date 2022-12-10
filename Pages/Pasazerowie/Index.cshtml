@@ -4,39 +4,49 @@
 @{
     ViewData["Title"] = "Pasażerowie";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Pasażerowie</h1>
 
-<h1>Pasażerowie</h1>
+    <p>
+        <a asp-page="Create">Dodaj</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pasazer[0].imie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pasazer[0].nazwisko)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Pasazer)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.imie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nazwisko)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.id_pasazera">Edytuj</a> |
+                        <a asp-page="./Details" asp-route-id="@item.id_pasazera">Szczegóły</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.id_pasazera">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<p>
-    <a asp-page="Create">Dodaj</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Pasazer[0].nazwisko)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pasazer[0].imie)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Pasazer) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nazwisko)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.imie)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id_pasazera">Edytuj</a> |
-                <a asp-page="./Details" asp-route-id="@item.id_pasazera">Szczegóły</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id_pasazera">Usuń</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+</body>
+</html>

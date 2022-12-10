@@ -8,10 +8,13 @@ namespace SBD.Models
     public class Pilot:User
     {
         [Key]
+        [Display(Name = "ID")]
         public int id_pilota { get; set; }
+        [Display(Name = "Imie")]
         public string imie { get; set; }
+        [Display(Name = "Nazwisko")]
         public string nazwisko { get; set; }
-
+        [Display(Name = "Linia lotnicza")]
         public string kod_linii { get; set; }
         public LiniaLotnicza linia { get; set; }
 
