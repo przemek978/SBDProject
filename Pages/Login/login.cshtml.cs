@@ -11,6 +11,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Security.AccessControl;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace SBD.Pages.Login
 {
@@ -43,6 +44,11 @@ namespace SBD.Pages.Login
                 }
             }
             query = "SELECT nazwa_uzytkownika, haslo FROM pilot";
+            string query = "SELECT nazwa_uzytkownika, haslo FROM pracownik";
+            var passwordHasher = new PasswordHasher<string>();
+            //user.haslo = passwordHasher.HashPassword(null, user.haslo);
+            //System.Diagnostics.Debug.WriteLine(user.haslo);
+
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -51,6 +57,8 @@ namespace SBD.Pages.Login
                     {
                         user.stanowisko = "Pilot";
                         if (user.nazwa_uzytkownika == reader.GetString(0) && user.haslo == reader.GetString(1))
+                        //System.Diagnostics.Debug.WriteLine(reader.GetString(1));
+                        if (user.nazwa_uzytkownika == reader.GetString(0) && user.haslo == reader.GetString(1) /*passwordHasher.VerifyHashedPassword(null, reader.GetString(1), user.haslo) == PasswordVerificationResult.Success*/)
                             return true;
                     }
                 }
