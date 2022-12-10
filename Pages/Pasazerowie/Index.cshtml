@@ -14,7 +14,7 @@
     <h1>Pasażerowie</h1>
 
     <p>
-        <a asp-page="Create">Dodaj</a>
+        <a class="btn button button4" asp-page="Create" class="btn button button1">Dodaj</a>
     </p>
     <table class="table">
         <thead>
@@ -39,9 +39,9 @@
                         @Html.DisplayFor(modelItem => item.nazwisko)
                     </td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.id_pasazera">Edytuj</a> |
-                        <a asp-page="./Details" asp-route-id="@item.id_pasazera">Szczegóły</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.id_pasazera">Usuń</a>
+                        <a class="btn button button4" asp-page="./Edit" asp-route-id="@item.id_pasazera">Edytuj</a> |
+                        <a class="btn button button4" asp-page="./Details" asp-route-id="@item.id_pasazera">Szczegóły</a> |
+                        <a class="btn button button4" asp-page="./Delete" asp-route-id="@item.id_pasazera">Usuń</a>
                     </td>
                 </tr>
             }

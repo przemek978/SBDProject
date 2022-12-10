@@ -8,7 +8,7 @@
 <h1>Piloci</h1>
 
 <p>
-    <a asp-page="Create">Dodaj</a>
+    <a class="btn button button4" asp-page="Create" class="btn button button1">Dodaj</a>
 </p>
 <table class="table">
     <thead>
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.linia.kod)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.id_pilota">Edytuj</a> |
-                <a asp-page="./Details" asp-route-id="@item.id_pilota">Szczegóły</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id_pilota">Usuń</a>
+                <a class="btn button button4" asp-page="./Edit" asp-route-id="@item.id_pilota">Edytuj</a> |
+                <a class="btn button button4" asp-page="./Details" asp-route-id="@item.id_pilota">Szczegóły</a> |
+                <a class="btn button button4" asp-page="./Delete" asp-route-id="@item.id_pilota">Usuń</a>
             </td>
         </tr>
 }
