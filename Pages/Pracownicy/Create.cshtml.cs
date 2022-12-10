@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -41,7 +42,8 @@ namespace SBD.Pages.Pracownicy
             {
                 return Page();
             }
-
+            //var passwordHasher = new PasswordHasher<string>();
+            //Pracownik.haslo = passwordHasher.HashPassword(null, Pracownik.haslo);
             _context.Pracownik.Add(Pracownik);
             await _context.SaveChangesAsync();
 
