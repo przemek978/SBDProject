@@ -29,9 +29,9 @@ namespace SBD
 			services.AddAuthentication("CookieAuthentication")
             .AddCookie("CookieAuthentication", config =>
             {
-	             config.Cookie.HttpOnly = true;
+	            config.Cookie.HttpOnly = true;
 	            config.Cookie.SecurePolicy = CookieSecurePolicy.None;
-	             config.Cookie.Name = "UserLoginCookie";
+	            config.Cookie.Name = "UserLoginCookie";
 	            config.LoginPath = "/Login/";
 	            config.Cookie.SameSite = SameSiteMode.Strict;
  });

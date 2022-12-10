@@ -1,0 +1,61 @@
+﻿@page
+@model SBD.Pages.Bilety.ListaModel
+@{
+    ViewData["Title"] = "Bilety lotu";
+}
+<h1>Bilety lotu </h1>
+
+<p>
+    <a class="btn button button4" asp-page="Create" class="btn button button1">Dodaj</a>
+</p>
+<table class="table">
+    <input type="hidden" asp-for="Lot.id_lotu" />
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bilet[0].Lot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bilet[0].Pasazer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bilet[0].nr_miejsca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bilet[0].Bagaz)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Bilet)
+        {
+            if (item.id_lotu == Model.Lot.id_lotu)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lot.id_lotu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pasazer.imie)
+                        @Html.DisplayFor(modelItem => item.Pasazer.nazwisko)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nr_miejsca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bagaz.id_bagazu)
+                        -
+                        @Html.DisplayFor(modelItem => item.Bagaz.waga)
+                        kg
+                    </td>
+                    <td>
+                        <a class="btn button button4" asp-page="./Edit" asp-route-id="@item.id_biletu">Edytuj</a> |
+                        <a class="btn button button4" asp-page="./Details" asp-route-id="@item.id_biletu">Szczegóły</a> |
+                        <a class="btn button button4" asp-page="./Delete" asp-route-id="@item.id_biletu">Usuń</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
