@@ -26,6 +26,7 @@ namespace SBD.Pages
 		{
 			string conn = _configuration.GetConnectionString("AirPortContext");
 			SqlConnection connection = new SqlConnection(conn);
+			connection.Open();
 			string query = "SELECT nazwa_uzytkownika, haslo FROM pracownik";
 			using (SqlCommand command = new SqlCommand(query, connection))
 			{
