@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var paget = "/Login/UserLogin";
+    var text = "Zaloguj";
+    var HI = "";
+    var footlog = "";
+    if (Context.Request.Cookies["UserLoginCookie"] != null)
+    {
+        paget = "/Login/Logout";
+        text = "Wyloguj";
+        HI = "WITAJ " + User.Identity.Name;
+        footlog = "Zalogowany jako " + @User.Identity.Name;
+    }
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,37 +34,41 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" >
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Bagaze/Index">Bagaze</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Bagaze/Index">Bagaze</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Bilety/Index">Bilety</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Bilety/Index">Bilety</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Pasazerowie/Index">Pasazerowie</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Pasazerowie/Index">Pasazerowie</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Licencje/Index">Licencje</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Licencje/Index">Licencje</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/LinieLotnicze/Index">Linie Lotnicze</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/LinieLotnicze/Index">Linie Lotnicze</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Piloci/Index">Piloci</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Piloci/Index">Piloci</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Pracownicy/Index">Pracownicy</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Pracownicy/Index">Pracownicy</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Samoloty/Index">Samoloty</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Samoloty/Index">Samoloty</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important" class="nav-link text-dark" asp-area="" asp-page="/Lotniska/Index">Lotniska</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Lotniska/Index">Lotniska</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: white!important"  class="nav-link text-dark" asp-area="" asp-page="/Loty/Index">Loty</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Loty/Index">Loty</a>
                         </li>
+                       
                     </ul>
                 </div>
+                <a style=" color: white !important;float: right;" class="nav-link text-dark log" asp-area="" asp-page="/Users/Profile">@HI</a>
+                <a style=" color: white !important;float: right;" class="nav-link text-dark log" asp-area="" asp-page=@paget> @text</a>
+
             </div>
         </nav>
     </header>
