@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authentication;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Security.AccessControl;
+using Microsoft.AspNetCore.Http;
 
 namespace SBD.Pages.Login
 {
@@ -27,13 +29,27 @@ namespace SBD.Pages.Login
             string conn = _configuration.GetConnectionString("AirPortContext");
             SqlConnection connection = new SqlConnection(conn);
             connection.Open();
-            string query = "SELECT nazwa_uzytkownika, haslo FROM pracownik";
+            string query = "SELECT nazwa_uzytkownika, haslo,stanowisko FROM pracownik";
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
+                        user.stanowisko = reader.GetString(2);
+                        if (user.nazwa_uzytkownika == reader.GetString(0) && user.haslo == reader.GetString(1))
+                            return true;
+                    }
+                }
+            }
+            query = "SELECT nazwa_uzytkownika, haslo FROM pilot";
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        user.stanowisko = "Pilot";
                         if (user.nazwa_uzytkownika == reader.GetString(0) && user.haslo == reader.GetString(1))
                             return true;
                     }
@@ -48,11 +64,15 @@ namespace SBD.Pages.Login
             {
                 var claims = new List<Claim>()
                 {
-                    new Claim(ClaimTypes.Name, user.nazwa_uzytkownika)
+                    new Claim(ClaimTypes.Name, user.nazwa_uzytkownika),
+                    new Claim(ClaimTypes.Role,user.stanowisko)
                 };
                 var claimsIdentity = new ClaimsIdentity(claims, "CookieAuthentication");
-                await HttpContext.SignInAsync("CookieAuthentication", new
-               ClaimsPrincipal(claimsIdentity));
+                var cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(1)
+                };
+                await HttpContext.SignInAsync("CookieAuthentication", new ClaimsPrincipal(claimsIdentity));
                 return RedirectToPage(returnUrl);
             }
             //return Page();

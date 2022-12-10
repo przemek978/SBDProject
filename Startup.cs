@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SBD.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 
 namespace SBD
 {
@@ -34,10 +35,25 @@ namespace SBD
 	            config.Cookie.Name = "UserLoginCookie";
 	            config.LoginPath = "/Login/";
 	            config.Cookie.SameSite = SameSiteMode.Strict;
- });
-			services.AddRazorPages(options => {
-				options.Conventions.AuthorizeFolder("/admin");
-			});
+                
+            });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdministratorRole",
+                     policy => policy.RequireRole("Administrator"));
+            });
+            services.AddRazorPages(options => {
+				options.Conventions.AuthorizeFolder("/Licencje","RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/LinieLotnicze", "RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/Lotniska", "RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/Loty", "RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/Piloci", "RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/Pracownicy", "RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/Samoloty", "RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/Bagaze");
+                options.Conventions.AuthorizeFolder("/Bilety");
+                options.Conventions.AuthorizeFolder("/Pasazerowie");
+            });
 
 
 			services.AddRazorPages();

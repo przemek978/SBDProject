@@ -33,37 +33,41 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" >
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Bagaze/Index">Bagaze</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Bilety/Index">Bilety</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Pasazerowie/Index">Pasazerowie</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Licencje/Index">Licencje</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/LinieLotnicze/Index">Linie Lotnicze</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Piloci/Index">Piloci</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Pracownicy/Index">Pracownicy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Samoloty/Index">Samoloty</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Lotniska/Index">Lotniska</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Loty/Index">Loty</a>
-                        </li>
-                       
+                        @if(User.IsInRole("Administrator")){
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Licencje/Index">Licencje</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/LinieLotnicze/Index">Linie Lotnicze</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Lotniska/Index">Lotniska</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Loty/Index">Loty</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Piloci/Index">Piloci</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Pracownicy/Index">Pracownicy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Samoloty/Index">Samoloty</a>
+                            </li>
+                        }
+                        @if(Context.Request.Cookies["UserLoginCookie"] != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Bagaze/Index">Bagaze</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Bilety/Index">Bilety</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Pasazerowie/Index">Pasazerowie</a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <a style=" color: white !important;float: right;" class="nav-link text-dark log" asp-area="" asp-page="/Users/Profile">@HI</a>

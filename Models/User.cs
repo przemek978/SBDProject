@@ -9,8 +9,9 @@ namespace SBD.Models
 		public string nazwa_uzytkownika { get; set; }
 		[Display(Name = "Hasło")]
 		[DataType(DataType.Password)]
-
 		public string haslo { get; set; }
+        [Display(Name = "Stanowisko")]
+        public string stanowisko { get; set; }
         //public User(string username,string password)
         //{
         //    this.nazwa_uzytkownika = username;
