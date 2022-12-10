@@ -10,7 +10,7 @@ namespace SBD.Pages.Login
 		public async Task<IActionResult> OnGet()
 		{
 			await HttpContext.SignOutAsync("CookieAuthentication");
-			return this.RedirectToPage("/index");
+			return this.RedirectToPage("/Index");
 		}
     }
 }
