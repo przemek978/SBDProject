@@ -33,7 +33,7 @@ namespace SBD
 	            config.Cookie.HttpOnly = true;
 	            config.Cookie.SecurePolicy = CookieSecurePolicy.None;
 	            config.Cookie.Name = "UserLoginCookie";
-	            config.LoginPath = "/Login/";
+	            config.LoginPath = "/Login/Login";
 	            config.Cookie.SameSite = SameSiteMode.Strict;
                 
             });
@@ -42,8 +42,9 @@ namespace SBD
                 options.AddPolicy("RequireAdministratorRole",
                      policy => policy.RequireRole("Administrator"));
             });
-            services.AddRazorPages(options => {
-				options.Conventions.AuthorizeFolder("/Licencje","RequireAdministratorRole");
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Licencje", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/LinieLotnicze", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Lotniska", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Loty", "RequireAdministratorRole");
@@ -56,7 +57,7 @@ namespace SBD
             });
 
 
-			services.AddRazorPages();
+            services.AddRazorPages();
 
             services.AddDbContext<AirPortContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AirPortContext")));

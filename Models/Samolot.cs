@@ -16,7 +16,7 @@ namespace SBD.Models
         [Display(Name = "Ilość miejsc")]
         public int ilosc_miejsc { set; get; }
         [Display(Name = "Linia lotnicza")]
-        public string id_linii { get; set; }
+        public string kod_linii { get; set; }
         public virtual LiniaLotnicza LiniaLotnicza { get; set; }
 
         [ForeignKey("id_samolotu")]

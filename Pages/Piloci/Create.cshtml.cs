@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -31,11 +32,12 @@ namespace SBD.Pages.Piloci
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+            var passwordHasher = new PasswordHasher<string>();
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
+            Pilot.haslo=passwordHasher.HashPassword(null, Pilot.haslo);
             _context.Pilot.Add(Pilot);
             await _context.SaveChangesAsync();
 

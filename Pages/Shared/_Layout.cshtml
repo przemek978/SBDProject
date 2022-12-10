@@ -70,8 +70,8 @@
                         }
                     </ul>
                 </div>
-                <a style=" color: white !important;float: right;" class="nav-link text-dark log" asp-area="" asp-page="/Users/Profile">@HI</a>
-                <a style=" color: white !important;float: right;" class="nav-link text-dark log" asp-area="" asp-page=@paget> @text</a>
+                <a class="nav-link text-light right log" asp-area="" asp-page="/Users/Profile">@HI</a>
+                <a class="nav-link text-light right log" asp-area="" asp-page=@paget> @text</a>
 
             </div>
         </nav>
@@ -84,7 +84,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Airport  - Przemysław Kuczyński, Rafał Kurzyna, Marcin Kaczanowski, Kamil Karwowski <a asp-area="" asp-page="login">Zaloguj się</a>
+            &copy; 2022 - Airport  - Przemysław Kuczyński, Rafał Kurzyna, Marcin Kaczanowski, Kamil Karwowski 
+            <a  asp-area="" asp-page=@paget> @text</a>
         </div>
     </footer>
 

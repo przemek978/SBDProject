@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Security.AccessControl;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Policy;
 
 namespace SBD.Pages.Login
 {
@@ -30,6 +31,7 @@ namespace SBD.Pages.Login
             string conn = _configuration.GetConnectionString("AirPortContext");
             SqlConnection connection = new SqlConnection(conn);
             connection.Open();
+            var passwordHasher = new PasswordHasher<string>();
             string query = "SELECT nazwa_uzytkownika, haslo,stanowisko FROM pracownik";
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -38,17 +40,13 @@ namespace SBD.Pages.Login
                     while (reader.Read())
                     {
                         user.stanowisko = reader.GetString(2);
-                        if (user.nazwa_uzytkownika == reader.GetString(0) && user.haslo == reader.GetString(1))
+                        //user.haslo = passwordHasher.HashPassword(null, user.haslo);
+                        if (user.nazwa_uzytkownika == reader.GetString(0) && passwordHasher.VerifyHashedPassword(null, reader.GetString(1), user.haslo) == PasswordVerificationResult.Success)
                             return true;
                     }
                 }
             }
             query = "SELECT nazwa_uzytkownika, haslo FROM pilot";
-            string query = "SELECT nazwa_uzytkownika, haslo FROM pracownik";
-            var passwordHasher = new PasswordHasher<string>();
-            //user.haslo = passwordHasher.HashPassword(null, user.haslo);
-            //System.Diagnostics.Debug.WriteLine(user.haslo);
-
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -56,9 +54,8 @@ namespace SBD.Pages.Login
                     while (reader.Read())
                     {
                         user.stanowisko = "Pilot";
-                        if (user.nazwa_uzytkownika == reader.GetString(0) && user.haslo == reader.GetString(1))
-                        //System.Diagnostics.Debug.WriteLine(reader.GetString(1));
-                        if (user.nazwa_uzytkownika == reader.GetString(0) && user.haslo == reader.GetString(1) /*passwordHasher.VerifyHashedPassword(null, reader.GetString(1), user.haslo) == PasswordVerificationResult.Success*/)
+                        //user.haslo = passwordHasher.HashPassword(null, user.haslo);
+                        if (user.nazwa_uzytkownika == reader.GetString(0) && passwordHasher.VerifyHashedPassword(null, reader.GetString(1), user.haslo) == PasswordVerificationResult.Success)
                             return true;
                     }
                 }
@@ -81,7 +78,7 @@ namespace SBD.Pages.Login
                     Expires = DateTime.Now.AddDays(1)
                 };
                 await HttpContext.SignInAsync("CookieAuthentication", new ClaimsPrincipal(claimsIdentity));
-                return RedirectToPage(returnUrl);
+                //return RedirectToPage(returnUrl);
             }
             //return Page();
             return RedirectToPage("/Index");

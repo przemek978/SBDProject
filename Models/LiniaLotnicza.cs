@@ -12,7 +12,7 @@ namespace SBD.Models
         [Display(Name = "Nazwa linii")]
         public string nazwa { get; set; }
 
-        [ForeignKey("id_linii")]
+        [ForeignKey("kod_linii")]
         public virtual ICollection<Samolot> Samoloty { get; set; }
 
         [ForeignKey("kod_linii")]
