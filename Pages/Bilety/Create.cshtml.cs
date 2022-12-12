@@ -42,11 +42,13 @@ namespace SBD.Pages.Bilety
                 Text = c.id_pasazera.ToString() + " - " + c.imie.ToString() + " " + c.nazwisko.ToString()
             });
 
+
             //ViewData["id_bagazu"] = new SelectList(_context.Bagaz, "id_bagazu", "id_bagazu");
             ViewData["id_lotu"] = new SelectList(selLot, "Value", "Text");
             ViewData["id_pasazera"] = new SelectList(selPas, "Value", "Text");
             return Page();
         }
+           
 
         [BindProperty]
         public Bilet Bilet { get; set; }
