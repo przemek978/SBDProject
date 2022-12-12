@@ -68,6 +68,7 @@ a {
 }
 .container{
     color: white;
+    margin: 0 auto;
 }
 
 .table {
