@@ -41,7 +41,7 @@ namespace SBD.Pages.Piloci
             _context.Pilot.Add(Pilot);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
     }
 }

@@ -38,7 +38,7 @@ namespace SBD.Pages.Pasazerowie
             _context.Pasazer.Add(Pasazer);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("./Index");
         }
     }
 }
