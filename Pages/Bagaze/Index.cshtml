@@ -14,8 +14,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Bagaz[0].id_bagazu)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Bagaz[0].waga)
             </th>
+
             <th></th>
         </tr>
     </thead>
@@ -23,11 +27,13 @@
 @foreach (var item in Model.Bagaz) {
         <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.waga) kg
+                @Html.DisplayFor(modelItem => item.id_bagazu) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.waga) kg
             </td>
             <td>
                 <a class="btn button button4" asp-page="./Edit" asp-route-id="@item.id_bagazu">Edytuj</a> |
-                <a class="btn button button4" asp-page="./Details" asp-route-id="@item.id_bagazu">Szczegóły</a> |
                 <a class="btn button button4" asp-page="./Delete" asp-route-id="@item.id_bagazu">Usuń</a>
             </td>
         </tr>

@@ -29,6 +29,18 @@
                 <select asp-for="Pilot.kod_linii" class="form-control" asp-items="ViewBag.kod_linii"></select>
                 <span asp-validation-for="Pilot.kod_linii" class="text-danger"></span>
             </div>
+            <div class="form-group" style="">
+                <label asp-for="Pilot.nazwa_uzytkownika" class="control-label"></label>
+                <input asp-for="Pilot.nazwa_uzytkownika" class="form-control" />
+
+                <span asp-validation-for="Pilot.nazwa_uzytkownika" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="">
+                <label asp-for="Pilot.haslo" class="control-label"></label>
+                <input asp-for="Pilot.haslo" class="form-control" />
+
+                <span asp-validation-for="Pilot.haslo" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Zapisz" class="btn button button4" />
             </div>

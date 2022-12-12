@@ -30,7 +30,17 @@
                 </select>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn button button4" value="Dodaj"/>
+                <label asp-for="Pilot.nazwa_uzytkownika" class="control-label"></label>
+                <input asp-for="Pilot.nazwa_uzytkownika" class="form-control" />
+                <span asp-validation-for="Pilot.nazwa_uzytkownika" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pilot.haslo" class="control-label"></label>
+                <input asp-for="Pilot.haslo" class="form-control" />
+                <span asp-validation-for="Pilot.haslo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn button button4" value="Dodaj" />
             </div>
         </form>
     </div>

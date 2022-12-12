@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.LiniaLotnicza[0].kod)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.LiniaLotnicza[0].nazwa)
             </th>
             <th></th>
@@ -23,11 +26,13 @@
 @foreach (var item in Model.LiniaLotnicza) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.kod)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.nazwa)
             </td>
             <td>
                 <a class="btn button button4" asp-page="./Edit" asp-route-id="@item.kod">Edytuj</a> |
-                <a class="btn button button4" asp-page="./Details" asp-route-id="@item.kod">Szczegóły</a> |
                 <a class="btn button button4" asp-page="./Delete" asp-route-id="@item.kod">Usuń</a>
             </td>
         </tr>
