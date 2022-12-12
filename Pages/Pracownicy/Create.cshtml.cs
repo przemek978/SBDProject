@@ -22,8 +22,8 @@ namespace SBD.Pages.Pracownicy
 
         public IActionResult OnGet()
         {
-            
-            //ViewData["id_lotniska"] = new SelectList(_context.Set<Lotnisko>(), "id_lotniska", "id_lotniska");
+         
+            ViewData["id_lotniska"] = new SelectList(_context.Set<Lotnisko>(), "id_lotniska", "nazwa");
             return Page();
         }
 
