@@ -22,7 +22,7 @@ namespace SBD.Pages.Piloci
 
         [BindProperty]
         public Pilot Pilot { get; set; }
-
+        public string pass { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -32,7 +32,7 @@ namespace SBD.Pages.Piloci
 
             Pilot = await _context.Pilot
                 .Include(p => p.linia).FirstOrDefaultAsync(m => m.id_pilota == id);
-
+            pass = Pilot.haslo;
             if (Pilot == null)
             {
                 return NotFound();
@@ -43,13 +43,13 @@ namespace SBD.Pages.Piloci
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string ? pass)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
+            Pilot.haslo = pass;
             _context.Attach(Pilot).State = EntityState.Modified;
 
             try
