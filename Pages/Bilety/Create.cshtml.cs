@@ -31,7 +31,7 @@ namespace SBD.Pages.Bilety
             var selLot = _context.Lot.Select(c => new SelectListItem
             {
                 Value = c.id_lotu.ToString(),
-                Text = c.Lotnisko.lokalizacja.ToString().Substring(0,3) + " -> " + c.Lotnisko_Koncowe.lokalizacja.ToString().Substring(0, 3) + " Czas: " + c.data.ToString("dd.MM.yyyy HH:mm")
+                Text = c.Lotnisko.lokalizacja.ToString().Substring(0,3).ToUpper() + " -> " + c.Lotnisko_Koncowe.lokalizacja.ToString().Substring(0, 3).ToUpper() + " Czas: " + c.data.ToString("dd.MM.yyyy HH:mm")
             });
 
             ViewData["id_bagazu"] = new SelectList(selBagaz, "Value", "Text");
