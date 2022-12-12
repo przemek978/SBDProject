@@ -7,7 +7,7 @@
     {
         paget = "/Login/Logout";
         text = "Wyloguj";
-        HI = "WITAJ " + User.Identity.Name;
+        HI = "WITAJ, " + User.Identity.Name;
         footlog = "Zalogowany jako " + @User.Identity.Name;
     }
 }
@@ -83,7 +83,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container" style="text-align:center">
             &copy; 2022 - Airport  - Przemysław Kuczyński, Rafał Kurzyna, Marcin Kaczanowski, Kamil Karwowski 
             <a  asp-area="" asp-page=@paget> @text</a>
         </div>
