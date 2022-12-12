@@ -22,7 +22,7 @@ namespace SBD.Pages.Pracownicy
 
         [BindProperty]
         public Pracownik Pracownik { get; set; }
-
+        public string pass { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -37,6 +37,7 @@ namespace SBD.Pages.Pracownicy
             {
                 return NotFound();
             }
+            pass = Pracownik.haslo;
             var sel = _context.Lotnisko.Select(c => new SelectListItem
             {
                 Value = c.id_lotniska.ToString(),
@@ -49,15 +50,14 @@ namespace SBD.Pages.Pracownicy
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string? pass)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
+            Pracownik.haslo = pass;
             _context.Attach(Pracownik).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
