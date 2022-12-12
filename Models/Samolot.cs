@@ -17,7 +17,7 @@ namespace SBD.Models
         public int ilosc_miejsc { set; get; }
         [Display(Name = "Linia lotnicza")]
         public string kod_linii { get; set; }
-        public virtual LiniaLotnicza LiniaLotnicza { get; set; }
+        public LiniaLotnicza LiniaLotnicza { get; set; }
 
         [ForeignKey("id_samolotu")]
         public virtual ICollection<Lot> Loty { get; set; }

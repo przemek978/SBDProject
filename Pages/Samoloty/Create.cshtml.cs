@@ -21,7 +21,7 @@ namespace SBD.Pages.Samoloty
 
         public IActionResult OnGet()
         {
-        ViewData["id_linii"] = new SelectList(_context.LiniaLotnicza, "kod", "kod");
+            ViewData["kod_linii"] = new SelectList(_context.LiniaLotnicza, "kod", "kod");
             return Page();
         }
 
