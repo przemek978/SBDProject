@@ -37,7 +37,7 @@ namespace SBD.Pages.Samoloty
             {
                 return NotFound();
             }
-           ViewData["id_linii"] = new SelectList(_context.LiniaLotnicza, "kod", "kod");
+           ViewData["kod_linii"] = new SelectList(_context.LiniaLotnicza, "kod", "kod");
             return Page();
         }
 
