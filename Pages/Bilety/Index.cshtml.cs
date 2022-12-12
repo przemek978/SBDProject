@@ -22,6 +22,10 @@ namespace SBD.Pages.Bilety
 
         public IList<Bilet> Bilet { get;set; }
 
+
+        public string datum { get; set; }
+
+
         public async Task OnGetAsync()
         {
             ViewData["id_pasazera"] = new SelectList(_context.Pasazer, "ID", "imie");
@@ -30,6 +34,21 @@ namespace SBD.Pages.Bilety
                 .Include(b => b.Bagaz)
                 .Include(b => b.Lot)
                 .Include(b => b.Pasazer).ToListAsync();
+
+            var data = await _context.Lot
+                .Include(l => l.Kapitan)
+                .Include(l => l.Lotnisko)
+                .Include(l => l.Lotnisko_Koncowe)
+                .Include(l => l.Oficer)
+                .Include(l => l.Samolot).ToListAsync();
+
+            foreach (var val in data)
+            {
+               /* if (val.id_lotu == Bilet.id_lotu)
+                {
+                    datum = val.ToString();
+                }*/
+            }
         }
     }
 }

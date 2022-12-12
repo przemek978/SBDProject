@@ -53,8 +53,15 @@ namespace SBD.Pages.Bilety
 
             //ViewData["id_kapitana"] = new SelectList(selectPilot, "Value", "Text");
 
+            var selLot = _context.Lot.Select(c => new SelectListItem
+            {
+                Value = c.id_lotu.ToString(),
+                Text = c.Lotnisko.lokalizacja.ToString().Substring(0, 3).ToUpper() + " -> " + c.Lotnisko_Koncowe.lokalizacja.ToString().Substring(0, 3).ToUpper() + " Czas: " + c.data.ToString("dd.MM.yyyy HH:mm") + " Samolot: " + c.Samolot.model
+            }) ;
+
+
             ViewData["id_bagazu"] = new SelectList(selBag, "Value", "Text");
-            ViewData["id_lotu"] = new SelectList(_context.Lot, "id_lotu", "id_lotu");
+            ViewData["id_lotu"] = new SelectList(selLot, "Value", "Text");
             ViewData["id_pasazera"] = new SelectList(selPas, "Value", "Text");
            return Page();
         }

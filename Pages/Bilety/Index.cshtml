@@ -39,7 +39,11 @@
                 @Html.DisplayFor(modelItem => item.nr_miejsca)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lot.id_lotu)
+
+@*                @Html.DisplayFor(modelItem => item.Lot, Model.Lot.ToString())     
+*@                @item.Lot.ToString()
+                
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Bagaz.id_bagazu)

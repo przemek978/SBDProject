@@ -33,5 +33,10 @@ namespace SBD.Models
         public virtual Pilot Oficer { get; set; }
         [ForeignKey("id_lotu")]           ////must add to map bilet.id_lotu to this.id_lotu
         public virtual ICollection<Bilet> Bilety { get; set; }
+
+        public override string ToString() {
+            return this.Lotnisko.lokalizacja.ToString().Substring(0, 3).ToUpper() + " -> " + this.Lotnisko_Koncowe.lokalizacja.ToString().Substring(0, 3).ToUpper() + " Czas: " + this.data.ToString("dd.MM.yyyy HH:mm") + " Samolot: " + this.Samolot.model;
+        }
+
     }
 }
