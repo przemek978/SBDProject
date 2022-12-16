@@ -47,7 +47,7 @@ namespace SBD
                 options.Conventions.AuthorizeFolder("/Licencje", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/LinieLotnicze", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Lotniska", "RequireAdministratorRole");
-                options.Conventions.AuthorizeFolder("/Loty", "RequireAdministratorRole");
+                options.Conventions.AuthorizeFolder("/Loty");
                 options.Conventions.AuthorizeFolder("/Piloci", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Pracownicy", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Samoloty", "RequireAdministratorRole");

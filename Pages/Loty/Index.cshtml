@@ -59,9 +59,15 @@
             </td>
             <td style="max-width: 300px">
                 <a class="btn button button4" asp-page="/Bilety/Lista" asp-route-id="@item.id_lotu">Bilety</a> |
-                <a class="btn button button4" asp-page="./Edit" asp-route-id="@item.id_lotu">Edytuj</a> |
+                @if (User.IsInRole("Administrator"))
+                {
+                    <a class="btn button button4" asp-page="./Edit" asp-route-id="@item.id_lotu">Edytuj</a> 
+                                                                                                         }
                 <a class="btn button button4" asp-page="./Details" asp-route-id="@item.id_lotu">Szczegóły</a> |
-                <a class="btn button button4" asp-page="./Delete" asp-route-id="@item.id_lotu">Usuń</a>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <a class="btn button button4" asp-page="./Delete" asp-route-id="@item.id_lotu">Usuń</a>
+                }
             </td>
         </tr>
 }
