@@ -79,9 +79,9 @@ namespace SBD.Pages.Login
                 };
                 await HttpContext.SignInAsync("CookieAuthentication", new ClaimsPrincipal(claimsIdentity));
                 //return RedirectToPage(returnUrl);
+                return RedirectToPage("/Index");
             }
-            //return Page();
-            return RedirectToPage("/Index");
+            return Page();
         }
 
         public void OnGet()
