@@ -11,6 +11,8 @@ namespace SBD.Models
         [Display(Name = "Waga")]
         public int waga { get; set; }
         public Bilet Bilet { get; set; }
+    
+        
         public Bagaz()
         {
 

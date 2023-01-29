@@ -5,7 +5,7 @@ namespace SBD.Models
 {
     public class Bilet
     {
-    
+
         [Key]
         [Display(Name = "ID")]
         public int id_biletu { get; set; }
@@ -20,11 +20,14 @@ namespace SBD.Models
         [Display(Name = "Bagaż")]
         public int id_bagazu { get; set; }
         public virtual Bagaz Bagaz { get; set; }
-        public bool przydziel_miejsce(int nr)
-        {
-                    this.nr_miejsca = nr;
-                    return true;
-        }
+
+    }
+
+    //public bool przydziel_miejsce(int nr)
+    //    {
+    //                this.nr_miejsca = nr;
+    //                return true;
+    //    }
 
             //public bool przydziel_miejsce(int nr)
             //{
@@ -55,8 +58,7 @@ namespace SBD.Models
             //    this.nr_miejsca = nr;
             //}
 
-        }
-
+       
 
 
 }

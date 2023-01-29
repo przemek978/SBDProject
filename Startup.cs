@@ -41,19 +41,26 @@ namespace SBD
             {
                 options.AddPolicy("RequireAdministratorRole",
                      policy => policy.RequireRole("Administrator"));
+                options.AddPolicy("RequireEmployeeRole",
+                     policy => policy.RequireRole("Pracownik", "Administrator"));
+                options.AddPolicy("RequirePilotRole",
+                     policy => policy.RequireRole("Pilot","Administrator"));
+                     
             });
             services.AddRazorPages(options =>
             {
                 options.Conventions.AuthorizeFolder("/Licencje", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/LinieLotnicze", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Lotniska", "RequireAdministratorRole");
-                options.Conventions.AuthorizeFolder("/Loty", "RequireAdministratorRole");
-                options.Conventions.AuthorizeFolder("/Piloci", "RequireAdministratorRole");
+                //options.Conventions.AuthorizeFolder("/Loty", "RequireAdministratorRole");
+                //options.Conventions.AuthorizeFolder("/Piloci", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Pracownicy", "RequireAdministratorRole");
                 options.Conventions.AuthorizeFolder("/Samoloty", "RequireAdministratorRole");
-                options.Conventions.AuthorizeFolder("/Bagaze");
-                options.Conventions.AuthorizeFolder("/Bilety");
-                options.Conventions.AuthorizeFolder("/Pasazerowie");
+                options.Conventions.AuthorizeFolder("/Bagaze", "RequireEmployeeRole");
+                options.Conventions.AuthorizeFolder("/Bilety", "RequireEmployeeRole");
+                options.Conventions.AuthorizeFolder("/Pasazerowie", "RequireEmployeeRole");
+                options.Conventions.AuthorizeFolder("/Loty", "RequirePilotRole");
+                options.Conventions.AuthorizeFolder("/Piloci", "RequirePilotRole");
             });
 
 

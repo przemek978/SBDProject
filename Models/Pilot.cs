@@ -18,9 +18,6 @@ namespace SBD.Models
         public string kod_linii { get; set; }
         public LiniaLotnicza linia { get; set; }
 
-        //public string nazwa_uzytkownika { get; set; }
-        //public string haslo { get; set; }  
-
         public virtual List<Lot> Loty_Kapitana { get; set; }
         public virtual List<Lot> Loty_Oficera { get; set; }
 
